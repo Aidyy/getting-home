@@ -4,11 +4,15 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour 
 {
 	public float speed;					//The player's speed. Don't hardcode it in here, change it in the inspector.
+	float gravity = 20f;				//The gravity, this'll ground the player. Try to leave it at the hardcoded default.
+	private Vector3 moveDir;			//The direction of movement
+	private FacingDirection facingDir;	//The direction the PC is currently facing. The base value is facing upwards, make sure to change it if the player is facing in a different direction at the start of a level.
 
-	public FacingDirection facingDir;	//The direction the PC is currently facing. The base value is facing upwards, make sure to change it if the player is facing in a different direction at the start of a level.
+	CharacterController controller; 
+	
 	public Transform myTrans;			//The transform of the PC.
 
-//	public float detectionRange;		//The detection range for the PC. Change this to increase the range at which the player can interact with things.
+	public float detectionRange;		//The detection range for the PC. Change this to increase the range at which the player can interact with things.
 
 	//debug variables should go below here, disable them when you don't need them
 
@@ -23,14 +27,21 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
+		controller = GetComponent<CharacterController>();
 		myTrans = transform;
-
 	}
 
 	void Update()
 	{
-		Move();	//Calls the movement function.
 
+		moveDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+		moveDir = transform.TransformDirection(moveDir);
+		moveDir *= speed;
+		
+//		moveDir.x -= gravity * Time.deltaTime;
+		controller.Move(moveDir * Time.deltaTime);
+		myTrans.position = new Vector3 (myTrans.position.x, myTrans.position.y, 0);
+		
 		//Mouse click stuff. The 0 represents left click, this particular Input requires and int to be passed through it.
 		if (Input.GetMouseButtonDown (0))
 		{
@@ -38,48 +49,48 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-	void Move()
-	{
-		if (Input.GetKey (KeyCode.W))
-		{
-			transform.Translate(Vector2.up * speed * Time.deltaTime);		//When W is pressed and held, the character will move up.
-			facingDir = FacingDirection.Up;									//The player's facing direction is changed to face up (forwards).
-		}
-
-		if (Input.GetKey (KeyCode.S))
-		{
-			transform.Translate(Vector2.down * speed * Time.deltaTime);		//When S is pressed and held, the character will move down.
-			facingDir = FacingDirection.Down;								//The player's facing direction is changed to face down (backwards).
-		}
-
-		if (Input.GetKey (KeyCode.A))
-		{
-			transform.Translate(Vector2.left * speed * Time.deltaTime);		//When A is pressed and held, the character will move left.
-			facingDir = FacingDirection.Left;								//The player's facing direction is changed to face left.
-		}
-
-		if (Input.GetKey (KeyCode.D))
-		{
-			transform.Translate(Vector2.right * speed * Time.deltaTime);	//When D is pressed and held, the character will move right.
-			facingDir = FacingDirection.Right;								//The player's facing direction is changed to face right.
-		}
-	}
-
-//	void DetectInteractDistance()
+//	void Move()
 //	{
-////		DetectionSphere.transform.position = myTrans.position * 1;
-//
-//		Collider[] objectsInRange = Physics.OverlapSphere (myTrans.position, detectionRange);
-//
-//		Debug.Log ("Checking for interactables...");
-//
-//		for (int i = 0; i < objectsInRange.Length; i++) 
+//		if (Input.GetKey (KeyCode.W))
 //		{
-////			objectsInRange[i].gameObject.GetComponent<InteractScript>();
+//			transform.Translate(Vector2.up * speed * Time.deltaTime);		//When W is pressed and held, the character will move up.
+//			facingDir = FacingDirection.Up;									//The player's facing direction is changed to face up (forwards).
 //		}
 //
-//		Debug.Log ("Finished.");
+//		if (Input.GetKey (KeyCode.S))
+//		{
+//			transform.Translate(Vector2.down * speed * Time.deltaTime);		//When S is pressed and held, the character will move down.
+//			facingDir = FacingDirection.Down;								//The player's facing direction is changed to face down (backwards).
+//		}
+//
+//		if (Input.GetKey (KeyCode.A))
+//		{
+//			transform.Translate(Vector2.left * speed * Time.deltaTime);		//When A is pressed and held, the character will move left.
+//			facingDir = FacingDirection.Left;								//The player's facing direction is changed to face left.
+//		}
+//
+//		if (Input.GetKey (KeyCode.D))
+//		{
+//			transform.Translate(Vector2.right * speed * Time.deltaTime);	//When D is pressed and held, the character will move right.
+//			facingDir = FacingDirection.Right;								//The player's facing direction is changed to face right.
+//		}
 //	}
+
+	void DetectInteractDistance()
+	{
+//		DetectionSphere.transform.position = myTrans.position * 1;
+
+		Collider[] objectsInRange = Physics.OverlapSphere (myTrans.position, detectionRange);
+
+		Debug.Log ("Checking for interactables...");
+
+		for (int i = 0; i < objectsInRange.Length; i++) 
+		{
+//			objectsInRange[i].gameObject.GetComponent<InteractScript>();
+		}
+
+		Debug.Log ("Finished.");
+	}
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -104,10 +115,10 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-//	void OnDrawGizmos()
-//	{
-//		Gizmos.DrawWireSphere(myTrans.position, detectionRange);
-//	}
+	void OnDrawGizmos()
+	{
+		Gizmos.DrawWireSphere(myTrans.position, detectionRange);
+	}
 }
 
 

@@ -7,6 +7,6 @@ public class BringToFront : MonoBehaviour
 
 	void OnEnable()
 	{
-		transform.SetAsLastSibling();	//draws the attached gameobject last
+		transform.SetAsLastSibling();	//sets the attached gameobject to be the last sibling (which renders on top)
 	}
 }
