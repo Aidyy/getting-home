@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MouseHighlight : MonoBehaviour 
 {
-	//This script manages the mouse highlighting, currently experimental.
+	//This script manages the mouse highlighting, currently unfinished.
 
 	private float blueMultiply = 3.50f;				
 	private float redGreenMultiply = 0.50f;			
