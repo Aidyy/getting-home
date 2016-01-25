@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\4. Scripts\Conversation Scripts\DialogueUIScript.cs">
     <Files>
       <File FileName="Assets\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Conversation Scripts\NPCConversationScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Conversation Scripts\DialogueUIScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\UI Scripts\ModalPanel.cs" Line="107" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
