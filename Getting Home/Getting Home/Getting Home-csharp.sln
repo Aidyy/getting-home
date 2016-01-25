@@ -1,8 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{5D37D4B8-BCEF-62ED-EEC8-21C46FE6FA99}") = "Getting Home", "Assembly-CSharp-firstpass-vs.csproj", "{6BF2BC0A-8594-759B-CC77-CB2D6BAA8E00}"
-EndProject
 Project("{5D37D4B8-BCEF-62ED-EEC8-21C46FE6FA99}") = "Getting Home", "Assembly-CSharp-vs.csproj", "{ACFBD572-D404-C8AB-F001-02413383C11A}"
 EndProject
 Project("{5D37D4B8-BCEF-62ED-EEC8-21C46FE6FA99}") = "Getting Home", "Assembly-CSharp-Editor-vs.csproj", "{81BC8008-B225-F319-95EB-83B424750ED7}"
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6BF2BC0A-8594-759B-CC77-CB2D6BAA8E00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BF2BC0A-8594-759B-CC77-CB2D6BAA8E00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BF2BC0A-8594-759B-CC77-CB2D6BAA8E00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BF2BC0A-8594-759B-CC77-CB2D6BAA8E00}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACFBD572-D404-C8AB-F001-02413383C11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACFBD572-D404-C8AB-F001-02413383C11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACFBD572-D404-C8AB-F001-02413383C11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																															GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
