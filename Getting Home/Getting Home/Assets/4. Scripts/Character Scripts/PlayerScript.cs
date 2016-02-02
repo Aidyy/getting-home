@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
 	private Vector3 moveDir;											//The direction of movement
 	private FacingDirection facingDir;									//The direction the PC is currently facing. The base value is facing upwards, make sure to change it if the player is facing in a different direction at the start of a level.
 	public Transform myTrans;											//The transform of the PC.
-	 CharacterController controller; 
+	CharacterController controller; 
 //	public List<GameObject> pickedUpObject = new List<GameObject>();
 
 	PickupScript pickupScript;
