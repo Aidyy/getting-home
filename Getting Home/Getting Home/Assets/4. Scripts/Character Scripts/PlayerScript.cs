@@ -9,9 +9,13 @@ public class PlayerScript : MonoBehaviour
 	private Vector3 moveDir;											//The direction of movement
 	private FacingDirection facingDir;									//The direction the PC is currently facing. The base value is facing upwards, make sure to change it if the player is facing in a different direction at the start of a level.
 	public Transform myTrans;											//The transform of the PC.
-	CharacterController controller; 
+	 CharacterController controller; 
 //	public List<GameObject> pickedUpObject = new List<GameObject>();
-
+	SpriteRenderer spriteRenderer;
+	public Sprite spriteUp;
+	public Sprite spriteDown;
+	public Sprite spriteRight;
+	public Sprite spriteLeft;
 	PickupScript pickupScript;
 	PickupScript currentHeldItem;
 
@@ -27,6 +31,9 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
+		spriteRenderer = GetComponent<SpriteRenderer> ();
+		
+		facingDir = FacingDirection.Right;
 		controller = GetComponent<CharacterController>();
 		pickupScript = GetComponent<PickupScript>();
 		myTrans = transform;
@@ -34,9 +41,28 @@ public class PlayerScript : MonoBehaviour
 
 	void Update()
 	{
+
+		if (facingDir == FacingDirection.Right)
+			spriteRenderer.sprite = spriteRight;
+		if (facingDir == FacingDirection.Left)
+			spriteRenderer.sprite = spriteLeft;
+		if (facingDir == FacingDirection.Up)
+			spriteRenderer.sprite = spriteUp;
+		if (facingDir == FacingDirection.Down)
+			spriteRenderer.sprite = spriteDown;
+
 		moveDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 		moveDir = transform.TransformDirection(moveDir);
 		moveDir *= speed;
+
+		if (moveDir.x > 0)
+			facingDir = FacingDirection.Right;
+		if (moveDir.x < 0)
+			facingDir = FacingDirection.Left;
+		if (moveDir.y > 0)
+			facingDir = FacingDirection.Up;
+		if (moveDir.y < 0)
+			facingDir = FacingDirection.Down;
 		
 //		moveDir.x -= gravity * Time.deltaTime;
 		controller.Move(moveDir * Time.deltaTime);
