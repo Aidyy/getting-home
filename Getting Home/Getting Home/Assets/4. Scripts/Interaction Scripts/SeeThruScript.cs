@@ -4,25 +4,34 @@ using System.Collections.Generic;
 
 public class SeeThruScript : MonoBehaviour 
 {
-	float alphaLevel = 1;	//set the gameobject's alpha value
+	public float stumpAlphaLevel = 1;		//set the child gameobject's alpha value
+	public float alphaLevel = 1;			//set the parent gameobject's alpha value
+	public GameObject treeStump;			//the child's gameobject
 
-//	void Start()
-//	{
-//		alphaLevel = Mathf.Clamp (alphaLevel, 0.5f, 1f);	//clamp the minimum value to .5f and the maximum to 1f, to prevent and issues regarding over or under calculating
-//	}
-
-	void DecreaseAlpha()
-	{	
-		alphaLevel = Mathf.Clamp (alphaLevel, 0.5f, 1f);	//clamp the minimum value to .5f and the maximum to 1f, to prevent and issues regarding over or under calculating
-		alphaLevel -= .5f;	//when called, this'll decrease the alphaLevel by .5f, bringing it from 1f down to .5f
-		GetComponent<SpriteRenderer>().color = new Color (1,1,1,alphaLevel);
+	void Start()
+	{
+		alphaLevel = Mathf.Clamp (alphaLevel, 0.5f, 1f);
+		stumpAlphaLevel = Mathf.Clamp (stumpAlphaLevel, 0.5f, 1f);
 	}
 
-	void IncreaseAlpha()
+	IEnumerator DecreaseAlphaCoroutine()
 	{
-		alphaLevel = Mathf.Clamp (alphaLevel, 0.5f, 1f);	//clamp the minimum value to .5f and the maximum to 1f, to prevent and issues regarding over or under calculating
-		alphaLevel += .5f;	//when called, this'll increase the alphaLevel by .5f, bringing it from .5f up to 1f
-		GetComponent<SpriteRenderer>().color = new Color (1,1,1,alphaLevel);
+		Debug.Log ("start IEnumerator for decreasing alpha");
+		yield return alphaLevel -= .5f;
+		yield return stumpAlphaLevel -= .5f;
+		GetComponent<SpriteRenderer> ().color = new Color (1,1,1,alphaLevel);
+		treeStump.gameObject.GetComponent<SpriteRenderer> ().color = new Color (1,1,1,stumpAlphaLevel);
+		Debug.Log ("end IEnumerator for decreasing");
+	}
+
+	IEnumerator IncreaseAlphaCoroutine()
+	{
+		Debug.Log ("start IEnumerator for increasing alpha");
+		yield return alphaLevel += .5f;
+		yield return stumpAlphaLevel += .5f;
+		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, alphaLevel);
+		treeStump.gameObject.GetComponent<SpriteRenderer>().color = new Color (1,1,1,stumpAlphaLevel);
+		Debug.Log("end IEnumerator for increasing");
 	}
 
 	//whenever the player enters the trigger zone for the gameobject, then it'll fade out
@@ -30,8 +39,8 @@ public class SeeThruScript : MonoBehaviour
 	{
 		if (other.tag == "Player") 
 		{
-			DecreaseAlpha();
-			Debug.Log ("done decreasing");
+			Debug.Log ("Run coroutine");
+			StartCoroutine("DecreaseAlphaCoroutine");
 		}
 	}
 
@@ -40,8 +49,8 @@ public class SeeThruScript : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
-			IncreaseAlpha();
-			Debug.Log ("done increasing");
+			Debug.Log ("Run coroutine");
+			StartCoroutine("IncreaseAlphaCoroutine");
 		}
 	}
 }
