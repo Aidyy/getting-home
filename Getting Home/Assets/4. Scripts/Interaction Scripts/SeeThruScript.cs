@@ -16,22 +16,18 @@ public class SeeThruScript : MonoBehaviour
 
 	IEnumerator DecreaseAlphaCoroutine()
 	{
-		Debug.Log ("start IEnumerator for decreasing alpha");
 		yield return alphaLevel -= .5f;
 		yield return stumpAlphaLevel -= .5f;
 		GetComponent<SpriteRenderer> ().color = new Color (1,1,1,alphaLevel);
 		treeStump.gameObject.GetComponent<SpriteRenderer> ().color = new Color (1,1,1,stumpAlphaLevel);
-		Debug.Log ("end IEnumerator for decreasing");
 	}
 
 	IEnumerator IncreaseAlphaCoroutine()
 	{
-		Debug.Log ("start IEnumerator for increasing alpha");
 		yield return alphaLevel += .5f;
 		yield return stumpAlphaLevel += .5f;
 		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, alphaLevel);
 		treeStump.gameObject.GetComponent<SpriteRenderer>().color = new Color (1,1,1,stumpAlphaLevel);
-		Debug.Log("end IEnumerator for increasing");
 	}
 
 	//whenever the player enters the trigger zone for the gameobject, then it'll fade out
@@ -39,8 +35,8 @@ public class SeeThruScript : MonoBehaviour
 	{
 		if (other.tag == "Player") 
 		{
-			Debug.Log ("Run coroutine");
 			StartCoroutine("DecreaseAlphaCoroutine");
+			Debug.Log ("Run coroutine");
 		}
 	}
 
@@ -49,8 +45,8 @@ public class SeeThruScript : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
-			Debug.Log ("Run coroutine");
 			StartCoroutine("IncreaseAlphaCoroutine");
+			Debug.Log ("Run coroutine");
 		}
 	}
 }

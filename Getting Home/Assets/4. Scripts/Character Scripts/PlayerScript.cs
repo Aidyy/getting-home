@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerScript : MonoBehaviour 
 {
-	public float speed;													//The player's speed. Don't hardcode it in here, change it in the inspector.
+	public float speed = 2;													//The player's speed.
 	float gravity = 20f;												//The gravity, this'll ground the player. Try to leave it at the hardcoded default.
 	private Vector3 moveDir;											//The direction of movement
 	private Vector2 velocity;											//The velocity of movement
@@ -58,15 +58,6 @@ public class PlayerScript : MonoBehaviour
 			}
 		}
 	}
-
-//	void FixedUpdate()
-//	{
-//		float moveUD = Input.GetAxis ("Vertical");		//move up and down 
-//		float moveLR = Input.GetAxis ("Horizontal");	//move left and right
-//
-//		myBody.velocity = new Vector2(moveUD * speed * Time.fixedDeltaTime, myBody.velocity.y);
-//		myBody.velocity = new Vector2(moveLR * speed * Time.fixedDeltaTime, myBody.velocity.y);
-//	}
 
 	void OnTriggerEnter(Collider other)
 	{
