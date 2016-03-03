@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{FD642B36-3A8F-EA13-2DED-414F7D696E49}</ProjectGuid>
+	<ProjectGuid>{ACFBD572-D404-C8AB-F001-02413383C11A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,16 +47,24 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\4. Scripts\Character Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\4. Scripts\Conversation Scripts\ConversationScript.cs" />
+     <Compile Include="Assets\4. Scripts\Conversation Scripts\DialogueUIScript.cs" />
+     <Compile Include="Assets\4. Scripts\Conversation Scripts\NPCConversationScript.cs" />
      <Compile Include="Assets\4. Scripts\Conversation Scripts\NewChatScript.cs" />
+     <Compile Include="Assets\4. Scripts\Conversation Scripts\Tests\TreeThatDiesScript.cs" />
      <Compile Include="Assets\4. Scripts\Interaction Scripts\MouseHighlight.cs" />
      <Compile Include="Assets\4. Scripts\Interaction Scripts\NpcScript.cs" />
      <Compile Include="Assets\4. Scripts\Interaction Scripts\PanelController.cs" />
      <Compile Include="Assets\4. Scripts\Interaction Scripts\PickupScript.cs" />
      <Compile Include="Assets\4. Scripts\Interaction Scripts\SeeThruScript.cs" />
      <Compile Include="Assets\4. Scripts\ItemPickedUp.cs" />
+     <Compile Include="Assets\4. Scripts\Managers\DisplayManager.cs" />
      <Compile Include="Assets\4. Scripts\Managers\LevelManager.cs" />
+     <Compile Include="Assets\4. Scripts\UI Scripts\BringToFront.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\DevMenu.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\FadingScript.cs" />
+     <Compile Include="Assets\4. Scripts\UI Scripts\ModalPanel.cs" />
+     <Compile Include="Assets\4. Scripts\UI Scripts\Tests\TestModalPanel.cs" />
      <None Include="Assets\Text Files\MotherBearQuestCompleted.txt" />
      <None Include="Assets\Text Files\MotherBearQuestRequest.txt" />
      <None Include="Assets\Text Files\FoxIdle.txt" />
