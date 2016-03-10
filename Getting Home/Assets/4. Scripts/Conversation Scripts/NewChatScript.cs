@@ -121,6 +121,7 @@ public class NewChatScript : MonoBehaviour {
 						currentLine += 1 ;
 
 				if (currentLine == endAtLine) {
+						theText.enabled = false;
 					chatEnabled = false;
 					currentLine = 0;
 						if (!questStarted && foxTalkedto)
@@ -145,6 +146,7 @@ public class NewChatScript : MonoBehaviour {
 						currentLine += 1;
 					
 					if (currentLine == endAtLine) {
+						theText.enabled = false;
 						chatEnabled = false;
 						currentLine = 0;
 						questStarted = true;
@@ -183,6 +185,7 @@ public class NewChatScript : MonoBehaviour {
 							currentLine += 1 ;
 						
 					if (currentLine == endAtLine) {
+							theText.enabled = false;
 							chatEnabled = false;
 							currentLine = 0;
 
@@ -216,6 +219,8 @@ public class NewChatScript : MonoBehaviour {
 						if (active){
 							chatEnabled = false;
 							currentLine = Random.Range(0, textLines.Length);
+							theText.enabled = false;
+
 						}
 				}
 
@@ -246,6 +251,7 @@ public class NewChatScript : MonoBehaviour {
 						currentLine += 1;
 					
 					if (currentLine == endAtLine) {
+						theText.enabled = false;
 						chatEnabled = false;
 						theText.enabled = chatEnabled;
 

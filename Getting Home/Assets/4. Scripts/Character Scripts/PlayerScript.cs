@@ -12,7 +12,11 @@ public class PlayerScript : MonoBehaviour
 	public Transform myTrans;											//The transform of the PC.
 	 CharacterController controller; 
 	public bool testMode;
+	bool currentlyInChat;
 
+	public Animator anim;
+	bool animWalkingRight;
+	bool animWalkingLeft;
 
 	SpriteRenderer spriteRenderer;
 	public Sprite spriteUp;
@@ -64,20 +68,41 @@ public class PlayerScript : MonoBehaviour
 		if (facingDir == FacingDirection.Down)
 			spriteRenderer.sprite = spriteDown;
 
-		moveDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-		moveDir = transform.TransformDirection(moveDir);
-		moveDir *= speed;
+		if (currentlyInChat == false) {
+			moveDir = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
+			moveDir = transform.TransformDirection (moveDir);
+			moveDir *= speed;
+		} else {
+			moveDir = Vector3.zero;
+		}
 
 //		Debug.Log (facingDir);
-		if (moveDir.x > 0)
+		if (moveDir.x > 0) {
 			facingDir = FacingDirection.Right;
-		if (moveDir.x < 0)
+			animWalkingRight = true;
+		}
+		if (moveDir.x < 0) {
 			facingDir = FacingDirection.Left;
-		if (moveDir.y > 0)
+			animWalkingLeft = true;
+		}
+			if (moveDir.y > 0){
 			facingDir = FacingDirection.Up;
-		if (moveDir.y < 0)
+			animWalkingRight = true;
+		}  
+		if (moveDir.y < 0){
 			facingDir = FacingDirection.Down;
-		
+			animWalkingLeft = true;
+		} 
+		if (moveDir.y == 0 && moveDir.x == 0) {
+
+			animWalkingLeft = false;
+			animWalkingRight = false;
+			
+		}
+
+
+		anim.SetBool("WalkingRight", animWalkingRight);
+		anim.SetBool ("WalkingLeft", animWalkingLeft);
 //		moveDir.x -= gravity * Time.deltaTime;
 		controller.Move(moveDir * Time.deltaTime);
 		myTrans.position = new Vector3 (myTrans.position.x, myTrans.position.y, 0);
@@ -113,9 +138,12 @@ public class PlayerScript : MonoBehaviour
 		NpcScript npcIdentifier = other.GetComponent<NpcScript> ();
 
 		//call universal triggers here, don't put level-specific ones, probably best to create a seperate script for that (Aidan 11/10/15)
-		if (other.tag == "NPC")
+		if (other.tag == "NPC" || other.tag == "NPC_MotherBear")
 		{
 			Debug.Log ("NPC detected you");
+			NewChatScript chatCheckScript = other.GetComponent<NewChatScript>();
+			Debug.Log(chatCheckScript.chatEnabled);
+			currentlyInChat = chatCheckScript.chatEnabled;
 		}
 
 		if (other.tag == "Tree")
@@ -149,6 +177,7 @@ public class PlayerScript : MonoBehaviour
 		if (other.tag == "NPC")
 		{
 			Debug.Log ("NPC no longer sees you");
+
 		}
 	}
 }
