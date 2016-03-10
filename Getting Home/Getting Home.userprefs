@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\4. Scripts\Managers\LevelManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Animations\FoxQuestReminder.txt">
     <Files>
-      <File FileName="Assets\4. Scripts\Managers\LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Character Scripts\PlayerScript.cs" Line="76" Column="27" />
+      <File FileName="Assets\animalAnimController.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Conversation Scripts\NewChatScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Animations\FoxQuestReminder.txt" Line="1" Column="62" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\aidan.coxon\Desktop\getting-home\Getting Home\Assets\ZZ. New UI Sys Test\Scripts\ModalPanel.cs" line="25" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
