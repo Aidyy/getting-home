@@ -140,9 +140,9 @@ public class PlayerScript : MonoBehaviour
 		//call universal triggers here, don't put level-specific ones, probably best to create a seperate script for that (Aidan 11/10/15)
 		if (other.tag == "NPC" || other.tag == "NPC_MotherBear")
 		{
-			Debug.Log ("NPC detected you");
+//			Debug.Log ("NPC detected you");
 			NewChatScript chatCheckScript = other.GetComponent<NewChatScript>();
-			Debug.Log(chatCheckScript.chatEnabled);
+//			Debug.Log(chatCheckScript.chatEnabled);
 			currentlyInChat = chatCheckScript.chatEnabled;
 		}
 
