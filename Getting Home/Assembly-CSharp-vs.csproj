@@ -60,11 +60,14 @@
      <Compile Include="Assets\4. Scripts\ItemPickedUp.cs" />
      <Compile Include="Assets\4. Scripts\Managers\DisplayManager.cs" />
      <Compile Include="Assets\4. Scripts\Managers\LevelManager.cs" />
+     <Compile Include="Assets\4. Scripts\Managers\TargetCheck.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\BringToFront.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\DevMenu.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\FadingScript.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\ModalPanel.cs" />
      <Compile Include="Assets\4. Scripts\UI Scripts\Tests\TestModalPanel.cs" />
+     <Compile Include="Assets\EventSpriteEnabler.cs" />
+     <Compile Include="Assets\LevelScripter.cs" />
      <Compile Include="Assets\animalAnimController.cs" />
      <None Include="Assets\Text Files\MotherBearQuestReminderAlt.txt" />
      <None Include="Assets\Text Files\BeaverQuestCompleted.txt" />

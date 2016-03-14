@@ -20,6 +20,7 @@ public class NewChatScript : MonoBehaviour {
 
 	public int currentLine;
 	public int endAtLine;
+
 	
 	public bool chatEnabled;
 	public bool testingMode;
@@ -31,7 +32,7 @@ public class NewChatScript : MonoBehaviour {
 	bool bearCubTalkedto;
 	private CharacterChatActive charActive;
 	public GameObject motherBear;
-
+	int checkNum;
 	PanelController panelController;
 
 	public PlayerScript playerScript;
@@ -45,6 +46,7 @@ public class NewChatScript : MonoBehaviour {
 		BearCub
 	}
 	void Start () {
+		checkNum = 0;
 		questStarted = false;
 		NpcScript npcScript = GetComponent<NpcScript> ();
 
@@ -93,12 +95,14 @@ public class NewChatScript : MonoBehaviour {
 
 			if (charActive == CharacterChatActive.MotherBear)
 			{
+				endAtLine = textLines.Length;
 				if (!questStarted)
 				{
 				if (!foxTalkedto)
 					textLines = (idleDialogue.text.Split('\n'));
 				if (foxTalkedto)
 				{
+					
 					textLines = (questRequest.text.Split('\n'));
 					
 				}
@@ -136,9 +140,26 @@ public class NewChatScript : MonoBehaviour {
 			}
 			else if (charActive == CharacterChatActive.Fox)
 			{
+
+				NpcScript currentNpcScript = GetComponent<NpcScript>();
 				endAtLine = textLines.Length;
 				if (questStarted)
 					textLines = (questReminder.text.Split('\n'));
+
+				if (questStarted)
+					{
+				 if (!currentNpcScript.doesCharHaveItemReq)
+					{
+							textLines = (questReminder.text.Split('\n'));
+						objectiveCompleted = true;
+					}
+				 if (currentNpcScript.doesCharHaveItemReq)
+						{
+							textLines = (objectiveCompletedDialogue.text.Split('\n'));
+						}
+					objectiveCompleted = true;
+					
+					}
 
 				theText.text = textLines [currentLine];
 				if (Input.GetKeyDown (KeyCode.Return)) {
@@ -149,21 +170,33 @@ public class NewChatScript : MonoBehaviour {
 						theText.enabled = false;
 						chatEnabled = false;
 						currentLine = 0;
+						if (!questStarted)
 						questStarted = true;
+
+						if (objectiveCompleted && questStarted)
+						{
+							currentNpcScript.objectiveMet = true;
+						}
 					}
 				}
 			}
 			else if (charActive == CharacterChatActive.Beaver)
 			{
+				
 				NewChatScript questReliantNpc = GameObject.FindGameObjectWithTag("NPC_MotherBear").GetComponent<NewChatScript>();
 				NpcScript currentNpcScript = GetComponent<NpcScript>();
 				theText.enabled = chatEnabled;
 				panelController.ImageEnabled (chatEnabled);
 				endAtLine = textLines.Length;
 
-				if (questReliantNpc.questStarted)
+				if (questReliantNpc.questStarted && bearCubTalkedto)
 				{
-				 
+					
+					if (checkNum == 0)
+					{
+						currentLine = 0;
+						checkNum += 1;
+					}
 				 if (bearCubTalkedto)
 					textLines = (questRequest.text.Split('\n'));
 
@@ -172,15 +205,18 @@ public class NewChatScript : MonoBehaviour {
 				 if (!currentNpcScript.doesCharHaveItemReq)
 					{
 							textLines = (questReminder.text.Split('\n'));
+							objectiveCompleted = false;
 					}
 				 if (currentNpcScript.doesCharHaveItemReq)
 						{
 							textLines = (objectiveCompletedDialogue.text.Split('\n'));
+							objectiveCompleted = true;
 						}
 					
 					}
 				
 				if (Input.GetKeyDown (KeyCode.Return)) {
+						
 					if (currentLine < textLines.Length)
 							currentLine += 1 ;
 						
@@ -188,6 +224,11 @@ public class NewChatScript : MonoBehaviour {
 							theText.enabled = false;
 							chatEnabled = false;
 							currentLine = 0;
+					if (objectiveCompleted && questStarted)
+							{
+								currentNpcScript.objectiveMet = true;
+							}
+					
 
 					if (!questStarted && bearCubTalkedto)
 						 {
@@ -238,15 +279,17 @@ public class NewChatScript : MonoBehaviour {
 			{
 
 				NewChatScript questReliantNpc = GameObject.FindGameObjectWithTag("NPC_MotherBear").GetComponent<NewChatScript>();
+				NpcScript currentNpcScript = GetComponent<NpcScript>();
 				if (questReliantNpc.questStarted && beaverTalkedto)
 					textLines = (questRequest.text.Split('\n'));
-				if (questReliantNpc.objectiveCompleted)
+				if (currentNpcScript.questReliantScript.objectiveMet)
 					textLines = (objectiveCompletedDialogue.text.Split('\n'));
 				
 				theText.text = textLines [currentLine];
-			
 				
-				if (Input.GetKeyDown (KeyCode.Return)) {
+				endAtLine = textLines.Length;
+				
+				if (Input.GetKeyDown (KeyCode.Return) || Input.GetKeyDown (KeyCode.L)) {
 					if (currentLine < textLines.Length)
 						currentLine += 1;
 					
@@ -254,6 +297,13 @@ public class NewChatScript : MonoBehaviour {
 						theText.enabled = false;
 						chatEnabled = false;
 						theText.enabled = chatEnabled;
+
+						if (currentNpcScript.questReliantScript.objectiveMet && objectiveCompleted != true)
+						{
+							objectiveCompleted = true;
+							currentNpcScript.objectiveMet = true;
+							panelController.ImageEnabled(false);
+						}
 
 						currentLine = 0;
 					}
