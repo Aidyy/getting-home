@@ -36,7 +36,6 @@ public class SeeThruScript : MonoBehaviour
 		if (other.tag == "Player") 
 		{
 			StartCoroutine("DecreaseAlphaCoroutine");
-			Debug.Log ("Run coroutine");
 		}
 	}
 
@@ -46,7 +45,6 @@ public class SeeThruScript : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			StartCoroutine("IncreaseAlphaCoroutine");
-			Debug.Log ("Run coroutine");
 		}
 	}
 }
