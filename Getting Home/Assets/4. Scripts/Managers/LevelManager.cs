@@ -4,14 +4,14 @@ using System.Collections;
 public class LevelManager : MonoBehaviour 
 {
 	TestModalPanel modalPanel;
+
 	public GameObject modalPanelObj;
+    public bool isPanelActive;
 
 	void Start()
 	{
-//		modalPanel = GetComponent<TestModalPanel>();
-
-//		modalPanel.enabled = false;
 		modalPanelObj.SetActive (false);
+        isPanelActive = false;
 	}
 
 	// Update is called once per frame
@@ -22,11 +22,21 @@ public class LevelManager : MonoBehaviour
 			NextLevel();
 		}
 
-		if (Input.GetKey (KeyCode.Escape)) 
+		if (Input.GetKeyDown (KeyCode.T))
 		{
-//			modalPanel.enabled = true;
+			StartCoroutine("CallFade");
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape) && isPanelActive == false) 
+		{
+			isPanelActive = true;
 			modalPanelObj.SetActive(true);
 		}
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPanelActive == true)
+        {
+			isPanelActive = false;
+            modalPanelObj.SetActive (false);
+        }
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -54,6 +64,19 @@ public class LevelManager : MonoBehaviour
 	public void CancelQuitMenu()
 	{
 		modalPanelObj.SetActive (false);
-//		modalPanel.enabled = false;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
