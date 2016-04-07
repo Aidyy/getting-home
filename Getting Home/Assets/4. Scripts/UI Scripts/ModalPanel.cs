@@ -58,6 +58,14 @@ public class ModalPanel : MonoBehaviour
 		return staticModalPanel;
 	}
 
+	#region TutorialFuncs
+	public void TutorialStatement(string question)
+	{
+		modalPanelObj.SetActive(true);
+	}
+	#endregion
+
+	#region Choices
 	//this will:       ask a question   create event on yes    create event on no  & create event on cancel
 	public void Choice(string question, UnityAction yesEvent, UnityAction noEvent, UnityAction cancelEvent)
 	{
@@ -212,10 +220,11 @@ public class ModalPanel : MonoBehaviour
 			button3.gameObject.SetActive(true);	
 		}
 	}
+	#endregion
 
 	void ClosePanel()
 	{
-		modalPanelObj.SetActive(false);						//closes the modal panel when called, can be used as a listener
+		modalPanelObj.SetActive(false);		//closes the modal panel when called, can be used as a listener
 	}
 }
 
