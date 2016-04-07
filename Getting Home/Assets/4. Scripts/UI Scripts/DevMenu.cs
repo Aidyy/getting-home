@@ -30,6 +30,16 @@ public class DevMenu : MonoBehaviour
 		player.speed -= speedDown * Time.deltaTime;
 	}
 
+//	public void ForceNextLevel()
+//	{
+//
+//	}
+//
+//	public void ForcePreviousLevel()
+//	{
+//
+//	}
+
 	public void ForceExit()
 	{
 		Application.Quit();

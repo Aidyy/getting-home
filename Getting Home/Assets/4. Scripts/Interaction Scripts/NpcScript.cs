@@ -7,12 +7,16 @@ public class NpcScript : MonoBehaviour {
 	public string requiredItem;
 	public string charIdentifier;
 	public bool objectiveMet;
+	public bool altObjectiveMet;
+	public bool altObjectiveMet2;
 	public bool doesCharHaveItemReq;
 	public bool doesCharHaveItemUnreq;
 	public bool doesCharHaveNothing;
 	public bool testingMode;
 	public GameObject questReliantNPC;
 	public NpcScript questReliantScript;
+
+	public Animator anim;
 
 	Transform myTransform;
 //	Vector3 postBearCubPosition;
@@ -28,6 +32,11 @@ public class NpcScript : MonoBehaviour {
 		myTransform = GetComponent<Transform> ();
 	}
 	void Update () {
+
+		if (anim != null) {
+			anim.SetBool ("ObjectiveMet", objectiveMet);
+		}
+
 		LevelScripter levelScripter = GameObject.FindGameObjectWithTag("LevelScripter").GetComponent<LevelScripter>();
 		
 		if (charIdentifier == "Beaver")
@@ -37,24 +46,38 @@ public class NpcScript : MonoBehaviour {
 		else if (charIdentifier == "MotherBear")
 		{
 			levelScripter.motherBearObjCompleted = objectiveMet;
+
+			if (objectiveMet)
+			{
+				TargetCheck motherBearPos = GameObject.FindGameObjectWithTag("MotherBearTargetPos").GetComponent<TargetCheck>();
+				myTransform.position = motherBearPos.targetPosTransform;
+			}
 		}
 		else if (charIdentifier == "Fox")
 		{
 			levelScripter.foxObjCompleted = objectiveMet;
+
+			if (objectiveMet && altObjectiveMet == false )
+			{
+				TargetCheck foxTargetPos = GameObject.FindGameObjectWithTag("FoxTargetPos").GetComponent<TargetCheck>();
+				myTransform.position = foxTargetPos.targetPosTransform;
+			}
+			if ( altObjectiveMet == true)
+			{
+				TargetCheck foxTargetPos = GameObject.FindGameObjectWithTag("FoxTargetPos2").GetComponent<TargetCheck>();
+				myTransform.position = foxTargetPos.targetPosTransform;
+			}
 		}
 		else if (charIdentifier == "BearCub")
 		{
 			levelScripter.bearCubObjCompleted = objectiveMet;
-		}
-	if (charIdentifier == "BearCub") {
-			
 			if (questReliantScript.objectiveMet)
 			{
-			TargetCheck targetPos1 = GameObject.FindGameObjectWithTag("BearCubTargetPos1").GetComponent<TargetCheck>();
-
-			myTransform.position = targetPos1.targetPosTransform;
+				TargetCheck targetPos1 = GameObject.FindGameObjectWithTag("BearCubTargetPos1").GetComponent<TargetCheck>();
+				
+				myTransform.position = targetPos1.targetPosTransform;
 			}
-
+			
 			if (objectiveMet)
 			{
 				TargetCheck targetPos2 = GameObject.FindGameObjectWithTag("BearCubTargetPos2").GetComponent<TargetCheck>();

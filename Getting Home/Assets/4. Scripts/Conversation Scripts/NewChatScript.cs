@@ -15,6 +15,10 @@ public class NewChatScript : MonoBehaviour {
 	public TextAsset questReminderAlt;
 	public TextAsset unrequiredItemDialogue;
 	public TextAsset objectiveCompletedDialogue;
+	public TextAsset altObjectiveCompletedDialogue;
+	public TextAsset altObjectiveCompletedDialogue2;
+
+	
 
 	public string[] textLines;
 
@@ -26,6 +30,8 @@ public class NewChatScript : MonoBehaviour {
 	public bool testingMode;
 	public bool questStarted;
 	public bool objectiveCompleted;
+	public bool altObjectiveCompleted;
+	public bool altObjectiveMet2;
 	bool foxTalkedto;
 	bool beaverTalkedto;
 	bool motherBearTalkedto;
@@ -95,6 +101,9 @@ public class NewChatScript : MonoBehaviour {
 
 			if (charActive == CharacterChatActive.MotherBear)
 			{
+				NpcScript currentNpcScript = gameObject.GetComponent<NpcScript>();
+
+
 				endAtLine = textLines.Length;
 				if (!questStarted)
 				{
@@ -111,12 +120,13 @@ public class NewChatScript : MonoBehaviour {
 				if (!objectiveCompleted && !bearCubTalkedto){
 					textLines = (questReminder.text.Split('\n'));
 				}
-				if ( !objectiveCompleted && bearCubTalkedto){
+				else if ( !objectiveCompleted && bearCubTalkedto){
 					textLines = (questReminderAlt.text.Split('\n'));
 				}
+					if (objectiveCompleted)
+						textLines = (objectiveCompletedDialogue.text.Split('\n'));
 			}
-				if (objectiveCompleted)
-					textLines = (objectiveCompletedDialogue.text.Split('\n'));
+
 
 				
 
@@ -125,7 +135,8 @@ public class NewChatScript : MonoBehaviour {
 						currentLine += 1 ;
 
 				if (currentLine == endAtLine) {
-						theText.enabled = false;
+					theText.enabled = false;
+						panelController.enabled = false;
 					chatEnabled = false;
 					currentLine = 0;
 						if (!questStarted && foxTalkedto)
@@ -151,13 +162,24 @@ public class NewChatScript : MonoBehaviour {
 				 if (!currentNpcScript.doesCharHaveItemReq)
 					{
 							textLines = (questReminder.text.Split('\n'));
-						objectiveCompleted = true;
+
 					}
 				 if (currentNpcScript.doesCharHaveItemReq)
 						{
 							textLines = (objectiveCompletedDialogue.text.Split('\n'));
+						if (objectiveCompleted && altObjectiveCompleted != true)
+						{
+							textLines = (altObjectiveCompletedDialogue.text.Split('\n'));
 						}
-					objectiveCompleted = true;
+
+						if (altObjectiveCompleted)
+						{
+							textLines = (altObjectiveCompletedDialogue2.text.Split('\n'));
+						}
+
+						}
+
+
 					
 					}
 
@@ -168,15 +190,31 @@ public class NewChatScript : MonoBehaviour {
 					
 					if (currentLine == endAtLine) {
 						theText.enabled = false;
+						panelController.ImageEnabled (false);
 						chatEnabled = false;
 						currentLine = 0;
 						if (!questStarted)
 						questStarted = true;
+						if (altObjectiveCompleted)
+						{
+							altObjectiveMet2 = true;
+
+						}
+
+						if (currentNpcScript.doesCharHaveItemReq)
+							objectiveCompleted = true;
+
+						if (currentNpcScript.objectiveMet)
+						{
+							altObjectiveCompleted = true;
+							currentNpcScript.altObjectiveMet = true;
+						}
 
 						if (objectiveCompleted && questStarted)
 						{
 							currentNpcScript.objectiveMet = true;
 						}
+
 					}
 				}
 			}
