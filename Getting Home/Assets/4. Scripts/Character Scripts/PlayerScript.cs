@@ -14,6 +14,9 @@ public class PlayerScript : MonoBehaviour
 	public bool testMode;
 	bool currentlyInChat;
 
+	EventSpriteEnabler charPortrait;
+	EventSpriteEnabler NpcPortrait;
+
 	public Animator anim;
 	bool animWalkingRight;
 	bool animWalkingLeft;
@@ -48,6 +51,8 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
+		charPortrait = GameObject.FindGameObjectWithTag ("CharacterPortrait").GetComponent<EventSpriteEnabler> ();
+		NpcPortrait = GameObject.FindGameObjectWithTag ("NPCPortrait").GetComponent<EventSpriteEnabler> ();
 		currentHeldItem = "nothingHeld";
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 
@@ -68,10 +73,18 @@ public class PlayerScript : MonoBehaviour
 		if (facingDir == FacingDirection.Down)
 			spriteRenderer.sprite = spriteDown;
 
+		if (currentlyInChat) {
+			charPortrait.ImageEnable();
+			NpcPortrait.ImageEnable();
+		}
+
 		if (currentlyInChat == false) {
 			moveDir = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
 			moveDir = transform.TransformDirection (moveDir);
 			moveDir *= speed;
+			charPortrait.imageDisable();
+			NpcPortrait.imageDisable();
+
 		} else {
 			moveDir = Vector3.zero;
 		}
