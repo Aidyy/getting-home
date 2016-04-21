@@ -1,13 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\4. Scripts\Managers\LevelManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\4. Scripts\Conversation Scripts\NewChatScript.cs">
     <Files>
-      <File FileName="Assets\4. Scripts\Managers\LevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\4. Scripts\Conversation Scripts\NewChatScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\4. Scripts\Character Scripts\PlayerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Animations\MotherBearQuestCompleted.txt" Line="1" Column="1" />
-      <File FileName="Assets\4. Scripts\Interaction Scripts\NpcScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\LevelScripter.cs" Line="86" Column="30" />
+      <File FileName="Assets\EventSpriteEnabler.cs" Line="49" Column="16" />
+      <File FileName="Assets\4. Scripts\Character Scripts\PlayerScript.cs" Line="138" Column="36" />
+      <File FileName="Assets\4. Scripts\Interaction Scripts\PanelController.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Conversation Scripts\NewChatScript.cs" Line="192" Column="60" />
+      <File FileName="Assets\Text Files\BeaverChatLines.txt" Line="8" Column="56" />
+      <File FileName="Assets\Animations\BearCubIdleDialogue.txt" Line="1" Column="1" />
+      <File FileName="Assets\Animations\sample text.txt" Line="1" Column="1" />
+      <File FileName="Assets\Animations\MotherBearQuestRequest.txt" Line="1" Column="1" />
+      <File FileName="Assets\Animations\MotherBearQuestReminder.txt" Line="3" Column="75" />
+      <File FileName="Assets\Animations\MotherBearQuestReminderAlt.txt" Line="4" Column="56" />
+      <File FileName="Assets\Animations\MotherBearQuestCompleted.txt" Line="1" Column="78" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
