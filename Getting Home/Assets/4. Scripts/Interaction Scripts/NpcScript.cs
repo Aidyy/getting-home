@@ -5,30 +5,35 @@ public class NpcScript : MonoBehaviour {
 
 	
 	public string requiredItem;
+	public string unrequiredItem;
 	public string charIdentifier;
+	public string specialItem;
 	public bool objectiveMet;
 	public bool altObjectiveMet;
 	public bool altObjectiveMet2;
 	public bool doesCharHaveItemReq;
 	public bool doesCharHaveItemUnreq;
+	public bool doesCharHaveSpecialItem;
 	public bool doesCharHaveNothing;
 	public bool testingMode;
 	public GameObject questReliantNPC;
 	public NpcScript questReliantScript;
 
 	public Animator anim;
-
+	EventSpriteEnabler Ekey ;
 	Transform myTransform;
 //	Vector3 postBearCubPosition;
 
 	// The start function can be used for initiation
 
 	void Start () {
+		Ekey = GetComponentInChildren<EventSpriteEnabler>();
 		if (charIdentifier == "BearCub")
 		questReliantScript = questReliantNPC.GetComponent<NpcScript> ();
 
 		doesCharHaveItemReq = false;
 		doesCharHaveItemUnreq = false;
+		doesCharHaveSpecialItem = false;
 		myTransform = GetComponent<Transform> ();
 	}
 	void Update () {
@@ -98,7 +103,8 @@ public class NpcScript : MonoBehaviour {
 		if (other.tag == "Player") {
 
 
-
+			Ekey.SpriteEnable();
+			
 			
 
 
@@ -113,6 +119,7 @@ public class NpcScript : MonoBehaviour {
 			#endregion
 			if (currentChatScript.chatEnabled)
 			{
+				Ekey.SpriteDisable();
 				if (charIdentifier == "MotherBear")
 					target.npcsTalkedTo[0] = true;
 				if (charIdentifier == "BearCub")
@@ -129,6 +136,10 @@ public class NpcScript : MonoBehaviour {
 				doesCharHaveItemReq = true; 
 				doesCharHaveItemUnreq = false;
 			}
+			else if ( specialItem == target.currentHeldItem)
+			{
+				doesCharHaveSpecialItem = true;
+			}
 
 			else if (target.currentHeldItem != null) // Executes if the player has an item not required by the current NPC in their hands. /H
 			{
@@ -141,5 +152,9 @@ public class NpcScript : MonoBehaviour {
 		}
 
 		}
+	void OnTriggerExit(Collider other)
+	{
+		Ekey.SpriteDisable ();
+	}
 
 }

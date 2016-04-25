@@ -19,6 +19,10 @@ public class NewChatScript : MonoBehaviour {
 	public TextAsset altObjectiveCompletedDialogue;
 	public TextAsset altObjectiveCompletedDialogue2;
 
+
+	EventSpriteEnabler pcImage;
+	EventSpriteEnabler npcImage;
+
 	
 
 	public string[] textLines;
@@ -43,6 +47,7 @@ public class NewChatScript : MonoBehaviour {
 	int checkNum;
 	PanelController panelController;
 
+
 	public PlayerScript playerScript;
 	// Use this for initialization
 
@@ -54,6 +59,10 @@ public class NewChatScript : MonoBehaviour {
 		BearCub
 	}
 	void Start () {
+
+
+		pcImage = GameObject.FindGameObjectWithTag ("CharacterPortrait").GetComponent<EventSpriteEnabler> ();
+		npcImage = GameObject.FindGameObjectWithTag ("NPCPortrait").GetComponent<EventSpriteEnabler> ();
 		npcPortrait = GameObject.FindGameObjectWithTag ("NPCPortrait").GetComponent<EventSpriteEnabler> ();
 		checkNum = 0;
 		questStarted = false;
@@ -84,6 +93,8 @@ public class NewChatScript : MonoBehaviour {
 	
 	// Update is called once per frame
 
+
+
 	void ChatActive () {
 
 		#region TestingArea
@@ -96,6 +107,7 @@ public class NewChatScript : MonoBehaviour {
 		theText.enabled = chatEnabled;
 		charIdentifier.enabled = chatEnabled;
 		panelController.ImageEnabled (chatEnabled);
+
 		if (chatEnabled) {
 //			Debug.Log (charActive);
 //			theText.enabled = chatEnabled;
@@ -103,138 +115,142 @@ public class NewChatScript : MonoBehaviour {
 
 
 
-			if (charActive == CharacterChatActive.MotherBear)
-			{
-				npcPortrait.loadSprite("motherBear");
-				NpcScript currentNpcScript = gameObject.GetComponent<NpcScript>();
+			if (charActive == CharacterChatActive.MotherBear) {
+				npcPortrait.loadSprite ("motherBear");
+				NpcScript currentNpcScript = gameObject.GetComponent<NpcScript> ();
 
 
 
 				endAtLine = textLines.Length;
-				if (!questStarted)
-				{
-				if (!foxTalkedto)
-					textLines = (idleDialogue.text.Split('\n'));
-					if (currentLine == 0 || currentLine == 2)
-					{
-						SwitchToNpc("Mother Bear");
+				if (!questStarted) {
+					if (!foxTalkedto)
+						textLines = (idleDialogue.text.Split ('\n'));
+					if (currentLine == 0 || currentLine == 2) {
+						SwitchToNpc ("Mother Bear");
+
+					} else {
+						SwitchToPc ();
+
 					}
-					else 
-						SwitchToPc();
 						
-				if (foxTalkedto)
-				{
+						
+					if (foxTalkedto) {
 					
-					textLines = (questRequest.text.Split('\n'));
-						if (currentLine == 1 || currentLine == 3 || currentLine == 4 || currentLine == 6 || currentLine == 8 || currentLine == 9)
-						{
-							SwitchToNpc("Mother Bear");
+						textLines = (questRequest.text.Split ('\n'));
+						if (currentLine == 1 || currentLine == 3 || currentLine == 4 || currentLine == 6 || currentLine == 8 || currentLine == 9) {
+							SwitchToNpc ("Mother Bear");
+
+						} else {
+							SwitchToPc ();
+
 						}
-						else
-							SwitchToPc();
+							
 					
+					}
 				}
-			}
-			if (questStarted){
-				if (!objectiveCompleted && !bearCubTalkedto){
-					textLines = (questReminder.text.Split('\n'));
-						if (currentLine == 0|| currentLine == 2)
-						{
-							SwitchToNpc("Mother Bear");
+				if (questStarted) {
+					if (!objectiveCompleted && !bearCubTalkedto) {
+						textLines = (questReminder.text.Split ('\n'));
+						if (currentLine == 0 || currentLine == 2) {
+							SwitchToNpc ("Mother Bear");
+
+						} else {
+							
+							SwitchToPc ();
 						}
-						else 
-							SwitchToPc();
-				}
-				else if ( !objectiveCompleted && bearCubTalkedto){
-					textLines = (questReminderAlt.text.Split('\n'));
-						if (currentLine == 0 || currentLine == 2 || currentLine == 3)
-						{
-							SwitchToNpc("Mother Bear");
-						}
-						else
-							SwitchToPc();
-				}
-					if (objectiveCompleted)
-					{
-						textLines = (objectiveCompletedDialogue.text.Split('\n'));
-						SwitchToNpc("Mother Bear"); 	
+							
+					} else if (!objectiveCompleted && bearCubTalkedto) {
+						textLines = (questReminderAlt.text.Split ('\n'));
+						if (currentLine == 0 || currentLine == 2 || currentLine == 3) {
+							SwitchToNpc ("Mother Bear");
+						} else
+							SwitchToPc ();
+					}
+					if (objectiveCompleted) {
+						textLines = (objectiveCompletedDialogue.text.Split ('\n'));
+						SwitchToNpc ("Mother Bear"); 	
 					}
 					
-			}
+				}
 
 
 				
 
-			if (Input.GetKeyDown (KeyCode.Return)) {
-				if (currentLine < textLines.Length)
-						currentLine += 1 ;
+				if (Input.GetKeyDown (KeyCode.Return)) {
+					if (currentLine < textLines.Length)
+						currentLine += 1;
 
-				if (currentLine == endAtLine) {
-					theText.enabled = false;
+					if (currentLine == endAtLine) {
+						theText.enabled = false;
 						panelController.enabled = false;
-					chatEnabled = false;
-					currentLine = 0;
-						if (!questStarted && foxTalkedto)
-						{
+						chatEnabled = false;
+						currentLine = 0;
+						if (!questStarted && foxTalkedto) {
 							questStarted = true;
 						}
-				}
+					}
 
 
 			
-			}
-			theText.text = textLines [currentLine];
-			}
-			else if (charActive == CharacterChatActive.Fox)
-			{
-				SwitchToNpc("Fox");
-				npcPortrait.loadSprite("Fox");
-				NpcScript currentNpcScript = GetComponent<NpcScript>();
-				endAtLine = textLines.Length;
-				if (!questStarted)
-				{
-					textLines = (idleDialogue.text.Split('\n'));
-					if (currentLine == 0 || currentLine == 2 || currentLine == 4 || currentLine == 6 || currentLine == 8 || currentLine == 10 || currentLine == 12 || currentLine == 13)
-						SwitchToNpc("Fox");
-					else 
-						SwitchToPc();
 				}
-				if (questStarted)
-					{
-				 if (!currentNpcScript.doesCharHaveItemReq)
-					{
-							textLines = (questReminder.text.Split('\n'));
-						SwitchToNpc("Fox");
+				theText.text = textLines [currentLine];
+			} else if (charActive == CharacterChatActive.Fox) {
+				SwitchToNpc ("Fox");
+				npcPortrait.loadSprite ("Fox");
+				NpcScript currentNpcScript = GetComponent<NpcScript> ();
+				endAtLine = textLines.Length;
+				if (!questStarted) {
+					textLines = (idleDialogue.text.Split ('\n'));
+					if (currentLine == 0 || currentLine == 2 || currentLine == 4 || currentLine == 6 || currentLine == 8 || currentLine == 10 || currentLine == 12 || currentLine == 13) {
+						SwitchToNpc ("Fox");
+
+
+					} else {
+
+						SwitchToPc ();
+
 
 					}
-				 if (currentNpcScript.doesCharHaveItemReq)
-						{
-							textLines = (objectiveCompletedDialogue.text.Split('\n'));
-						SwitchToNpc("Fox");
+						
+				}
+				if (questStarted) {
+					if (!currentNpcScript.doesCharHaveItemReq) {
+						textLines = (questReminder.text.Split ('\n'));
+						SwitchToNpc ("Fox");
 
-						if (objectiveCompleted && altObjectiveCompleted != true)
-						{
-							textLines = (altObjectiveCompletedDialogue.text.Split('\n'));
-							if (currentLine == 1)
-								SwitchToNpc("Fox");
-							else
-								SwitchToPc();
+
+
+
+					}
+					if (currentNpcScript.doesCharHaveItemReq) {
+						textLines = (objectiveCompletedDialogue.text.Split ('\n'));
+						SwitchToNpc ("Fox");
+
+						if (objectiveCompleted && altObjectiveCompleted != true) {
+							textLines = (altObjectiveCompletedDialogue.text.Split ('\n'));
+							if (currentLine == 1) {
+								SwitchToNpc ("Fox");
+
+							} else {
+								SwitchToPc ();
+
+							}
+								
 						}
 
-						if (altObjectiveCompleted)
-						{
-							textLines = (altObjectiveCompletedDialogue2.text.Split('\n'));
+						if (altObjectiveCompleted) {
+							textLines = (altObjectiveCompletedDialogue2.text.Split ('\n'));
 							if (currentLine == 0 || currentLine == 2 || currentLine == 4 || currentLine == 6)
-								SwitchToNpc("Fox");
+								SwitchToNpc ("Fox");
 							else
-								SwitchToPc();
+								SwitchToPc ();
 						}
 
-						}
+					}
 
 
 					
-					}
+				}
 
 				theText.text = textLines [currentLine];
 				if (Input.GetKeyDown (KeyCode.Return)) {
@@ -247,9 +263,8 @@ public class NewChatScript : MonoBehaviour {
 						chatEnabled = false;
 						currentLine = 0;
 						if (!questStarted)
-						questStarted = true;
-						if (altObjectiveCompleted)
-						{
+							questStarted = true;
+						if (altObjectiveCompleted) {
 							altObjectiveMet2 = true;
 
 						}
@@ -257,63 +272,59 @@ public class NewChatScript : MonoBehaviour {
 						if (currentNpcScript.doesCharHaveItemReq)
 							objectiveCompleted = true;
 
-						if (currentNpcScript.objectiveMet)
-						{
+						if (currentNpcScript.objectiveMet) {
 							altObjectiveCompleted = true;
 							currentNpcScript.altObjectiveMet = true;
 						}
 
-						if (objectiveCompleted && questStarted)
-						{
+						if (objectiveCompleted && questStarted) {
 							currentNpcScript.objectiveMet = true;
 						}
 
 					}
 				}
-			}
-			else if (charActive == CharacterChatActive.Beaver)
-			{
-				npcPortrait.loadSprite("beaver");
-				NewChatScript questReliantNpc = GameObject.FindGameObjectWithTag("NPC_MotherBear").GetComponent<NewChatScript>();
-				NpcScript currentNpcScript = GetComponent<NpcScript>();
+			} else if (charActive == CharacterChatActive.Beaver) {
+				npcPortrait.loadSprite ("beaver");
+				NewChatScript questReliantNpc = GameObject.FindGameObjectWithTag ("NPC_MotherBear").GetComponent<NewChatScript> ();
+				NpcScript currentNpcScript = GetComponent<NpcScript> ();
 				theText.enabled = chatEnabled;
 				panelController.ImageEnabled (chatEnabled);
 				endAtLine = textLines.Length;
 
 				if (questReliantNpc.questStarted != true || objectiveCompleted)
-					SwitchToNpc("Beaver");
+					SwitchToNpc ("Beaver");
 
-				if (questReliantNpc.questStarted && bearCubTalkedto)
-				{
+				if (questReliantNpc.questStarted && bearCubTalkedto) {
 					
-					if (checkNum == 0)
-					{
+					if (checkNum == 0) {
 						currentLine = 0;
 						checkNum += 1;
 					}
 
-				 if (bearCubTalkedto)
-					{
-					textLines = (questRequest.text.Split('\n'));
-					if (currentLine == 1 || currentLine == 2 || currentLine == 4 || currentLine == 5 || currentLine == 6)
-							SwitchToNpc("Beaver");
+					if (bearCubTalkedto) {
+						textLines = (questRequest.text.Split ('\n'));
+						if (currentLine == 1 || currentLine == 2 || currentLine == 4 || currentLine == 5 || currentLine == 6)
+							SwitchToNpc ("Beaver");
 						else 
-							SwitchToPc();
+							SwitchToPc ();
 					}
-					if (questStarted)
-					{
-				 if (!currentNpcScript.doesCharHaveItemReq)
-					{
-							textLines = (questReminder.text.Split('\n'));
+					if (questStarted) {
+						if (!currentNpcScript.doesCharHaveItemReq) {
+							textLines = (questReminder.text.Split ('\n'));
 							objectiveCompleted = false;
 							if (currentLine == 1 || currentLine == 2)
-								SwitchToNpc("Beaver");
+								SwitchToNpc ("Beaver");
 							else
-								SwitchToPc();
-					}
-				 if (currentNpcScript.doesCharHaveItemReq)
+								SwitchToPc ();
+						}
+						if (currentNpcScript.doesCharHaveSpecialItem)
 						{
-							textLines = (objectiveCompletedDialogue.text.Split('\n'));
+							textLines = (questReminderAlt.text.Split ('\n'));
+							SwitchToNpc ("Beaver");
+						}
+						
+						if (currentNpcScript.doesCharHaveItemReq) {
+							textLines = (objectiveCompletedDialogue.text.Split ('\n'));
 							objectiveCompleted = true;
 
 							
@@ -321,55 +332,51 @@ public class NewChatScript : MonoBehaviour {
 					
 					}
 				
-				if (Input.GetKeyDown (KeyCode.Return)) {
+					if (Input.GetKeyDown (KeyCode.Return)) {
 						
-					if (currentLine < textLines.Length)
-							currentLine += 1 ;
+						if (currentLine < textLines.Length)
+							currentLine += 1;
 						
-					if (currentLine == endAtLine) {
+						if (currentLine == endAtLine) {
 							theText.enabled = false;
 							chatEnabled = false;
 							currentLine = 0;
-					if (objectiveCompleted && questStarted)
-							{
+							if (objectiveCompleted && questStarted) {
 								currentNpcScript.objectiveMet = true;
 							}
 					
 
-					if (!questStarted && bearCubTalkedto)
-						 {
+							if (!questStarted && bearCubTalkedto) {
 								questStarted = true;
-						 }
-					if (questStarted && currentNpcScript.doesCharHaveItemReq)
-							{
+							}
+							if (questStarted && currentNpcScript.doesCharHaveItemReq) {
 								objectiveCompleted = true;
+								playerScript.currentHeldItem = null;
 							}
 						}
 					}
 
 
-				}
-				else
-				{
+				} else {
 					endAtLine = 1;
 
 					
 					
 					if (Input.GetKeyDown (KeyCode.Return)) {
 						
-						if (!active){
+						if (!active) {
 							active = true;
 							
 							
 						}
 						
-						if (active){
+						if (active) {
 							chatEnabled = false;
-							currentLine = Random.Range(0, textLines.Length);
+							currentLine = Random.Range (0, textLines.Length);
 							theText.enabled = false;
 
 						}
-				}
+					}
 
 
 
@@ -379,33 +386,27 @@ public class NewChatScript : MonoBehaviour {
 					
 				}
 				theText.text = textLines [currentLine];
-			}
-
-			else if (charActive == CharacterChatActive.BearCub)
-			{
-				npcPortrait.loadSprite("bearCub");
-				NewChatScript questReliantNpc = GameObject.FindGameObjectWithTag("NPC_MotherBear").GetComponent<NewChatScript>();
-				NpcScript currentNpcScript = GetComponent<NpcScript>();
-				if (questReliantNpc.questStarted != true || questReliantNpc.questStarted == true && beaverTalkedto != true)
-				{
-					textLines = (idleDialogue.text.Split('\n'));
+			} else if (charActive == CharacterChatActive.BearCub) {
+				npcPortrait.loadSprite ("bearCub");
+				NewChatScript questReliantNpc = GameObject.FindGameObjectWithTag ("NPC_MotherBear").GetComponent<NewChatScript> ();
+				NpcScript currentNpcScript = GetComponent<NpcScript> ();
+				if (questReliantNpc.questStarted != true || questReliantNpc.questStarted == true && beaverTalkedto != true) {
+					textLines = (idleDialogue.text.Split ('\n'));
 					if (currentLine == 0)
 						SwitchToNpc ("Bear Cub");
 					else
-						SwitchToPc();
+						SwitchToPc ();
 				}
-				if (questReliantNpc.questStarted && beaverTalkedto)
-				{
-					textLines = (questRequest.text.Split('\n'));
+				if (questReliantNpc.questStarted && beaverTalkedto) {
+					textLines = (questRequest.text.Split ('\n'));
 					if (currentLine == 0 || currentLine == 2)
-						SwitchToNpc("Bear Cub");
+						SwitchToNpc ("Bear Cub");
 					else
-						SwitchToPc();
+						SwitchToPc ();
 				}
-				if (currentNpcScript.questReliantScript.objectiveMet)
-				{
-					textLines = (objectiveCompletedDialogue.text.Split('\n'));
-					SwitchToNpc("Bear Cub");
+				if (currentNpcScript.questReliantScript.objectiveMet) {
+					textLines = (objectiveCompletedDialogue.text.Split ('\n'));
+					SwitchToNpc ("Bear Cub");
 				}
 				theText.text = textLines [currentLine];
 				
@@ -419,19 +420,19 @@ public class NewChatScript : MonoBehaviour {
 						theText.enabled = false;
 						chatEnabled = false;
 						theText.enabled = chatEnabled;
+						charIdentifier.enabled = chatEnabled;
 
-						if (currentNpcScript.questReliantScript.objectiveMet && objectiveCompleted != true)
-						{
+						if (currentNpcScript.questReliantScript.objectiveMet && objectiveCompleted != true) {
 							objectiveCompleted = true;
 							currentNpcScript.objectiveMet = true;
-							panelController.ImageEnabled(false);
+							panelController.ImageEnabled (false);
 						}
 
 						currentLine = 0;
 					}
 				}
 			}
-		}
+		} 
 	}
 
 //	void OnMouseOver()
@@ -445,29 +446,45 @@ public class NewChatScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider other)
 	{
+
 		if (other.tag == "Player") {
-			PlayerScript playerConsole = other.GetComponent<PlayerScript>();
-			motherBearTalkedto = playerConsole.npcsTalkedTo[0];
-			bearCubTalkedto = playerConsole.npcsTalkedTo[1];
-			beaverTalkedto = playerConsole.npcsTalkedTo[2];
-			foxTalkedto = playerConsole.npcsTalkedTo[3];
+
+
+
+			PlayerScript playerConsole = other.GetComponent<PlayerScript> ();
+			motherBearTalkedto = playerConsole.npcsTalkedTo [0];
+			bearCubTalkedto = playerConsole.npcsTalkedTo [1];
+			beaverTalkedto = playerConsole.npcsTalkedTo [2];
+			foxTalkedto = playerConsole.npcsTalkedTo [3];
 			ChatActive ();
-			if (Input.GetButtonDown ("Fire1") && mouseOver) {
+			if (Input.GetButtonDown ("Interact")) {
 
 				chatEnabled = true;
 
+
 			}
-		}
+		} 
 
 	}
-
+	void NPCLight()
+	{
+		npcImage.ImageLight();
+		pcImage.ImageDarken();
+	}
+	void PCLight()
+	{
+		npcImage.ImageDarken();
+		pcImage.ImageLight();
+	}
 	void SwitchToPc ()
 	{
 		charIdentifier.text = "Dylan";
+		PCLight ();
 	}
 	void SwitchToNpc(string npcName)
 	{
 		charIdentifier.text = npcName;
+		NPCLight ();
 	}
 	void OnMouseEnter()
 	{
