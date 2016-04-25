@@ -16,10 +16,14 @@ public class PlayerScript : MonoBehaviour
 
 	EventSpriteEnabler charPortrait;
 	EventSpriteEnabler NpcPortrait;
+	EventSpriteEnabler buttonController;
+	EventSpriteEnabler downArrow;
 
 	public Animator anim;
 	bool animWalkingRight;
 	bool animWalkingLeft;
+
+
 
 	SpriteRenderer spriteRenderer;
 	public Sprite spriteUp;
@@ -51,6 +55,8 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
+		buttonController = GameObject.FindGameObjectWithTag ("EnterButton").GetComponent<EventSpriteEnabler> ();
+		downArrow = GameObject.FindGameObjectWithTag ("DownArrow").GetComponent<EventSpriteEnabler> ();
 		charPortrait = GameObject.FindGameObjectWithTag ("CharacterPortrait").GetComponent<EventSpriteEnabler> ();
 		NpcPortrait = GameObject.FindGameObjectWithTag ("NPCPortrait").GetComponent<EventSpriteEnabler> ();
 		currentHeldItem = "nothingHeld";
@@ -73,10 +79,7 @@ public class PlayerScript : MonoBehaviour
 		if (facingDir == FacingDirection.Down)
 			spriteRenderer.sprite = spriteDown;
 
-		if (currentlyInChat) {
-			charPortrait.ImageEnable();
-			NpcPortrait.ImageEnable();
-		}
+
 
 		if (currentlyInChat == false) {
 			moveDir = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
@@ -84,9 +87,15 @@ public class PlayerScript : MonoBehaviour
 			moveDir *= speed;
 			charPortrait.imageDisable();
 			NpcPortrait.imageDisable();
+			buttonController.imageDisable();
+			downArrow.imageDisable();
 
 		} else {
 			moveDir = Vector3.zero;
+			buttonController.ImageEnable();
+			charPortrait.ImageEnable();
+			NpcPortrait.ImageEnable();
+			downArrow.ImageEnable();
 		}
 
 //		Debug.Log (facingDir);
