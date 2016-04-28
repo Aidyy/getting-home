@@ -19,6 +19,9 @@ public class PlayerScript : MonoBehaviour
 	EventSpriteEnabler buttonController;
 	EventSpriteEnabler downArrow;
 
+	public bool tutorialLevel;
+	public bool firstLevel;
+
 	public Animator anim;
 	bool animWalkingRight;
 	bool animWalkingLeft;
@@ -55,10 +58,13 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
-		buttonController = GameObject.FindGameObjectWithTag ("EnterButton").GetComponent<EventSpriteEnabler> ();
-		downArrow = GameObject.FindGameObjectWithTag ("DownArrow").GetComponent<EventSpriteEnabler> ();
-		charPortrait = GameObject.FindGameObjectWithTag ("CharacterPortrait").GetComponent<EventSpriteEnabler> ();
-		NpcPortrait = GameObject.FindGameObjectWithTag ("NPCPortrait").GetComponent<EventSpriteEnabler> ();
+		currentlyInChat = false;
+		if (firstLevel) {
+			buttonController = GameObject.FindGameObjectWithTag ("EnterButton").GetComponent<EventSpriteEnabler> ();
+			downArrow = GameObject.FindGameObjectWithTag ("DownArrow").GetComponent<EventSpriteEnabler> ();
+			charPortrait = GameObject.FindGameObjectWithTag ("CharacterPortrait").GetComponent<EventSpriteEnabler> ();
+			NpcPortrait = GameObject.FindGameObjectWithTag ("NPCPortrait").GetComponent<EventSpriteEnabler> ();
+		}
 		currentHeldItem = "nothingHeld";
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 
@@ -70,6 +76,18 @@ public class PlayerScript : MonoBehaviour
 
 	void Update()
 	{
+		//DEV ONLY - THIS MUST BE REMOVED WHEN THE GAME IS BUILT
+		if (Input.GetKeyDown (KeyCode.J) && speed != 40f) 
+		{
+			speed = 40f;
+		}
+		if (Input.GetKeyDown (KeyCode.K) && speed != 4f) 
+		{
+			speed = 4f;
+		}
+		//DEV ONLY - THIS MUST BE REMOVED WHEN THE GAME IS BUILT
+
+
 		if (facingDir == FacingDirection.Right)
 			spriteRenderer.sprite = spriteRight;
 		if (facingDir == FacingDirection.Left)
@@ -78,25 +96,32 @@ public class PlayerScript : MonoBehaviour
 			spriteRenderer.sprite = spriteUp;
 		if (facingDir == FacingDirection.Down)
 			spriteRenderer.sprite = spriteDown;
-
-
-
-		if (currentlyInChat == false) {
+		if (tutorialLevel) {
 			moveDir = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
 			moveDir = transform.TransformDirection (moveDir);
 			moveDir *= speed;
-			charPortrait.imageDisable();
-			NpcPortrait.imageDisable();
-			buttonController.imageDisable();
-			downArrow.imageDisable();
-
-		} else {
-			moveDir = Vector3.zero;
-			buttonController.ImageEnable();
-			charPortrait.ImageEnable();
-			NpcPortrait.ImageEnable();
-			downArrow.ImageEnable();
 		}
+
+		if (firstLevel) {
+		
+			if (currentlyInChat == false || Application.loadedLevelName == "f_Level_01") {
+				moveDir = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
+				moveDir = transform.TransformDirection (moveDir);
+				moveDir *= speed;
+				charPortrait.imageDisable ();
+				NpcPortrait.imageDisable ();
+				buttonController.imageDisable ();
+				downArrow.imageDisable ();
+
+			} else {
+				moveDir = Vector3.zero;
+				buttonController.ImageEnable ();
+				charPortrait.ImageEnable ();
+				NpcPortrait.ImageEnable ();
+				downArrow.ImageEnable ();
+			}
+		}
+
 
 //		Debug.Log (facingDir);
 		if (moveDir.x > 0) {
