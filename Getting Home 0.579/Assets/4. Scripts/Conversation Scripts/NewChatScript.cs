@@ -271,6 +271,7 @@ public class NewChatScript : MonoBehaviour {
 
 						if (currentNpcScript.doesCharHaveItemReq)
 							objectiveCompleted = true;
+						playerScript.currentHeldItem = null;
 
 						if (currentNpcScript.objectiveMet) {
 							altObjectiveCompleted = true;

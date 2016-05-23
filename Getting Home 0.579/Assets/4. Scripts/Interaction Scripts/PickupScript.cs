@@ -13,12 +13,14 @@ public class PickupScript : MonoBehaviour
 	public Sprite perfectLogSprite;
 	public Sprite originalSprite;
 
+	EventSpriteEnabler pickUpKey ;
+
 	string heldItem;
 	string lastHeldItem;
 
 	PlayerScript spriteReliant;
 	void Start()
-	{   
+	{   pickUpKey = GetComponentInChildren<EventSpriteEnabler> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		spriteRenderer.sprite = originalSprite;
 		spriteReliant = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerScript> ();
@@ -39,6 +41,7 @@ public class PickupScript : MonoBehaviour
 	{   checkRefresh ();
 		if (heldItem == "nothingHeld"|| heldItem == "null") {
 			spriteRenderer.sprite = null;
+//			itemSecondaryTag = null;
 		} else if (heldItem == "Item_BadLog") {
 			spriteRenderer.sprite = badLogSprite;
 		} else if (heldItem == "Item_Key") {
@@ -48,6 +51,7 @@ public class PickupScript : MonoBehaviour
 		} else if (heldItem == "Item_Axe") {
 			spriteRenderer.sprite = axeSprite;
 		}
+
 //		checkRefresh ();
 
 	}
@@ -60,5 +64,22 @@ public class PickupScript : MonoBehaviour
 	{
 		myTrans.parent = playerTrans;
 		myTrans.localPosition = new Vector3(0,1,1);
+	}
+
+	void OnTriggerStay (Collider other)
+	{
+		if (other.tag == "Player" && itemSecondaryTag != null)
+		pickUpKey.SpriteEnable ();
+		if (Input.GetKeyDown (KeyCode.E)) {
+			pickUpKey.SpriteDisable ();
+
+		}
+			
+	}
+	void OnTriggerExit (Collider other)
+	{
+		if (other.tag == "Player") {
+			pickUpKey.SpriteDisable();
+		}
 	}
 }

@@ -190,15 +190,15 @@ public class PlayerScript : MonoBehaviour
 			return;
 		}
 		#region TestingArea2
-		if (other.tag == "pickup" && testMode) {
+		if (other.tag == "pickup") {
 			pickupScript = other.GetComponent<PickupScript>();
 			Debug.Log (other.tag);
 
 			if (Input.GetKeyDown(KeyCode.E))
 			{
-				lastHeldItem = currentHeldItem;
+//				lastHeldItem = currentHeldItem;
 				pickupScript.SpriteUpdate();
-			currentHeldItem = pickupScript.itemSecondaryTag; //Gets the secondary tag name from item you have just collided with, in case it is tagged as pick up /H
+//			currentHeldItem = pickupScript.itemSecondaryTag; //Gets the secondary tag name from item you have just collided with, in case it is tagged as pick up /H
 
 				PickupScript itemHeld = GetComponentInChildren<PickupScript>();
 				itemHeld.spriteRenderer.enabled = true;
