@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\4. Scripts\Managers\EventSpriteEnabler.cs">
+    <Files>
+      <File FileName="Assets\4. Scripts\Interaction Scripts\PickupScript.cs" Line="93" Column="26" />
+      <File FileName="Assets\4. Scripts\Character Scripts\PlayerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Interaction Scripts\NpcScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\4. Scripts\Conversation Scripts\NewChatScript.cs" Line="217" Column="33" />
+      <File FileName="Assets\4. Scripts\Managers\EventSpriteEnabler.cs" Line="54" Column="19" />
+      <File FileName="Assets\10. Text Files (alt)\BeaverQuestReminder.txt" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
