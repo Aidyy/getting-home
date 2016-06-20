@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: a3590248e35d07847b9a560efa0532bd
+timeCreated: 1457561722
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: idle_right_1
+    21300002: idle_right_2
+    21300004: idle_right_3
+    21300006: idle_right_4
+    21300008: idle_right_5
+    21300010: idle_right_6
+    21300012: idle_right_7
+    21300014: idle_right_8
+    21300016: Monster-squirrel_8
+    21300018: Monster-squirrel_9
+    21300020: Monster-squirrel_10
+    21300022: Monster-squirrel_11
+    21300024: Monster-squirrel_12
+    21300026: Monster-squirrel_13
+    21300028: Monster-squirrel_14
+    21300030: Monster-squirrel_15
+    21300032: Squirrel_Idle_Front_0
+    21300034: Squirrel_Idle_Front_1
+    21300036: Squirrel_Idle_Front_2
+    21300038: Squirrel_Idle_Front_3
+    21300040: Squirrel_Idle_Front_4
+    21300042: Squirrel_Idle_Front_5
+    21300044: Squirrel_Idle_Front_6
+    21300046: Squirrel_Idle_Front_7
+    21300048: Monster-squirrel_24
+    21300050: Monster-squirrel_25
+    21300052: Monster-squirrel_26
+    21300054: Monster-squirrel_27
+    21300056: Monster-squirrel_28
+    21300058: Monster-squirrel_29
+    21300060: Monster-squirrel_30
+    21300062: Monster-squirrel_31
+    21300064: Squirrel_scurry_right_1
+    21300066: Squirrel_scurry_right_3
+    21300068: Monster-squirrel_34
+    21300070: Monster-squirrel_35
+    21300072: Monster-squirrel_36
+    21300074: Monster-squirrel_37
+    21300076: Monster-squirrel_38
+    21300078: Monster-squirrel_39
+    21300080: Monster-squirrel_40
+    21300082: Monster-squirrel_41
+    21300084: Monster-squirrel_42
+    21300086: Monster-squirrel_43
+    21300088: Monster-squirrel_44
+    21300090: Monster-squirrel_45
+    21300092: Monster-squirrel_46
+    21300094: Monster-squirrel_47
+    21300096: Monster-squirrel_48
+    21300098: Monster-squirrel_49
+    21300100: Monster-squirrel_50
+    21300102: Monster-squirrel_51
+    21300104: Monster-squirrel_52
+    21300106: Squirrel_scurry_right_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: idle_right_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 230
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 230
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 230
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_4
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 230
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 230
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_6
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 230
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 230
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_right_8
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 230
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 198
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_9
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 198
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_10
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 198
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 198
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_12
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 198
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_13
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 198
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_14
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 198
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_15
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 198
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 166
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 166
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 166
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 166
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: .670792162, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_4
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 166
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_5
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 166
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_6
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 166
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_Idle_Front_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 166
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 134
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_25
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 134
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_26
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 134
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_27
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 134
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_28
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 134
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_29
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 134
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_30
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 134
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_31
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 134
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_scurry_right_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 100
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_scurry_right_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 102
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_34
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 102
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_35
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 102
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_36
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 102
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 70
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_39
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 70
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_40
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 70
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_41
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 70
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_42
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 35
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_43
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 39
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_44
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 32
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_45
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 38
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_46
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 34
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_47
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 34
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_48
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_49
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_50
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_51
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 6
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Monster-squirrel_52
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 70
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Squirrel_scurry_right_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 102
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

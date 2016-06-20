@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\4. Scripts\Managers\LevelScripter.cs">
+    <Files>
+      <File FileName="Assets\4. Scripts\UI Scripts\UI Backend\EventFadeScript.cs" Line="13" Column="31" />
+      <File FileName="Assets\4. Scripts\Managers\LevelScripter.cs" Line="72" Column="40" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
