@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\Getting Home 0.5\Assets\4. Scripts\Interaction Scripts\SeeThruScript.cs">
+    <Files>
+      <File FileName="..\Getting Home 0.5\Assets\4. Scripts\Interaction Scripts\SeeThruScript.cs" Line="39" Column="34" />
+      <File FileName="Assets\4. Scripts\Character Scripts\PlayerScript.cs" Line="9" Column="115" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
