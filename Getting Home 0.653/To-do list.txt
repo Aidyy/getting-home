@@ -1,4 +1,0 @@
-Repopulate the level with trees/bushes/rocks/other env assets
-Continue re-sorting the folder structure
-Continue with re-naming unsorted assets
-Continue with removing PSDs in favour of PNGs or JPEGs
