@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SoundEffectsMixer
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300001}
+  m_Snapshots:
+  - {fileID: 24500003}
+  - {fileID: 24577606}
+  - {fileID: 24529508}
+  - {fileID: 24528158}
+  - {fileID: 24507318}
+  - {fileID: 24548646}
+  - {fileID: 24596384}
+  m_StartSnapshot: {fileID: 24500003}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_ExposedParameters: []
+  m_AudioMixerGroupViews:
+  - guids:
+    - 65fa0b0240a7ebf439ec3ffefc443ae3
+    - c612b7dcf531ed94cbb040e988fe2c8d
+    - 499b32e443393b04a9ae51a2b3d91ee1
+    - 4b3ac95a5972a4a40a097d7ff2715321
+    - 4b670e90f5effa54496eac3532d935b0
+    - 94d02ef436613b144a3d02affb85f933
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500003}
+--- !u!243 &24300001
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 65fa0b0240a7ebf439ec3ffefc443ae3
+  m_Children:
+  - {fileID: 24337866}
+  - {fileID: 24382040}
+  - {fileID: 24317010}
+  - {fileID: 24356090}
+  - {fileID: 24383824}
+  m_Volume: 26f60f0176cd77f46a764f07f025cb8a
+  m_Pitch: 354d6e42dc70c96428c3fcef93cc59e8
+  m_Effects:
+  - {fileID: 24400002}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &24317010
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Footsteps Dirt
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 4b3ac95a5972a4a40a097d7ff2715321
+  m_Children: []
+  m_Volume: b1526e5554543a04b8386358dfc388ea
+  m_Pitch: 69ec4fd466bad594e96427393b03aeab
+  m_Effects:
+  - {fileID: 24414616}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &24337866
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ambiance
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c612b7dcf531ed94cbb040e988fe2c8d
+  m_Children: []
+  m_Volume: 5d9638aa91367054ebb2afcc8886a528
+  m_Pitch: d74f4c2c34392bc45ad37fa1cf00570a
+  m_Effects:
+  - {fileID: 24458946}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &24356090
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Bridge Idle
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 4b670e90f5effa54496eac3532d935b0
+  m_Children: []
+  m_Volume: b12c085d1d70bd54bb916f7745108576
+  m_Pitch: aea8b96db97787f49a7d22a1a1a1ca66
+  m_Effects:
+  - {fileID: 24470120}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &24382040
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Footsteps
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 499b32e443393b04a9ae51a2b3d91ee1
+  m_Children: []
+  m_Volume: d7db7563e47be4c47adbfe174480af2c
+  m_Pitch: 3f20d46008fd8594c960fd6fe64c243e
+  m_Effects:
+  - {fileID: 24473780}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &24383824
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Bridge Torso
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 94d02ef436613b144a3d02affb85f933
+  m_Children: []
+  m_Volume: 7f129da95915279489b6b8c4030329bc
+  m_Pitch: db3ff2333c164c141a7a1f702c8a40b4
+  m_Effects:
+  - {fileID: 24478872}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400002
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 32b413d6a40caa844a4e0fc02feb8b70
+  m_EffectName: Attenuation
+  m_MixLevel: 2d7eb6b18fe07c34497db93a3d54a689
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24414616
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8a1a515be40dad145b3c078155b108d7
+  m_EffectName: Attenuation
+  m_MixLevel: 4921e0614b9999d4581cfedcc52a5270
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24458946
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: da6b2b6189062b44688ae37705fed6bd
+  m_EffectName: Attenuation
+  m_MixLevel: c3f18dce8a6ae954b8d040c7c2e2cf73
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24470120
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 476d1350202fb3b4daf827042345f1ec
+  m_EffectName: Attenuation
+  m_MixLevel: facb013c0a2da8142bd3ccc5b089e11a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24473780
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: d158fb348f6270d449fb369b998d11ee
+  m_EffectName: Attenuation
+  m_MixLevel: 555e21220ab112e46820c880d5c4bb91
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24478872
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 03d04fce050e272438efd12d5f08fa2f
+  m_EffectName: Attenuation
+  m_MixLevel: 808365f686356f94b92760cda551473d
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500003
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ambiance
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: df094f7e36aef824f883f44608dc9ed5
+  m_FloatValues:
+    26f60f0176cd77f46a764f07f025cb8a: .0255785119
+    d7db7563e47be4c47adbfe174480af2c: -80
+    b1526e5554543a04b8386358dfc388ea: -80
+    7f129da95915279489b6b8c4030329bc: -80
+    5d9638aa91367054ebb2afcc8886a528: 2.45832157
+    b12c085d1d70bd54bb916f7745108576: -80
+  m_TransitionOverrides: {}
+--- !u!245 &24507318
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Bridge Idle
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 1cabe6a922dec784081d7d9009ec3ac7
+  m_FloatValues:
+    26f60f0176cd77f46a764f07f025cb8a: .0255785119
+    d7db7563e47be4c47adbfe174480af2c: -80
+    b1526e5554543a04b8386358dfc388ea: -80
+    7f129da95915279489b6b8c4030329bc: -80
+    5d9638aa91367054ebb2afcc8886a528: .440324783
+    b12c085d1d70bd54bb916f7745108576: 2.36409688
+  m_TransitionOverrides: {}
+--- !u!245 &24528158
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Bridge
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 71f7fb43b38cce04da4c846a6353a21a
+  m_FloatValues:
+    26f60f0176cd77f46a764f07f025cb8a: .0255785119
+    d7db7563e47be4c47adbfe174480af2c: -80
+    b1526e5554543a04b8386358dfc388ea: -3.93330121
+    7f129da95915279489b6b8c4030329bc: -80
+    5d9638aa91367054ebb2afcc8886a528: .440324783
+    b12c085d1d70bd54bb916f7745108576: 2.00252962
+  m_TransitionOverrides: {}
+--- !u!245 &24529508
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Footsteps Dirt
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: ff35b5d6997aa214b911887b130ca4d3
+  m_FloatValues:
+    26f60f0176cd77f46a764f07f025cb8a: .0255785119
+    d7db7563e47be4c47adbfe174480af2c: -80
+    b1526e5554543a04b8386358dfc388ea: -3.84685755
+    7f129da95915279489b6b8c4030329bc: -80
+    5d9638aa91367054ebb2afcc8886a528: 2.45832157
+    b12c085d1d70bd54bb916f7745108576: -80
+  m_TransitionOverrides: {}
+--- !u!245 &24548646
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Bridge Grass
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: d414306fff4566147a548b7dad782668
+  m_FloatValues:
+    26f60f0176cd77f46a764f07f025cb8a: .0255785119
+    d7db7563e47be4c47adbfe174480af2c: -3.59229422
+    b1526e5554543a04b8386358dfc388ea: -80
+    7f129da95915279489b6b8c4030329bc: -80
+    5d9638aa91367054ebb2afcc8886a528: .440324783
+    b12c085d1d70bd54bb916f7745108576: 2.36409855
+  m_TransitionOverrides: {}
+--- !u!245 &24577606
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Footsteps
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: eeb48e5fbcaa88c41ab3e7659492302f
+  m_FloatValues:
+    d7db7563e47be4c47adbfe174480af2c: -3.59229422
+    b1526e5554543a04b8386358dfc388ea: -80
+    7f129da95915279489b6b8c4030329bc: -80
+    b12c085d1d70bd54bb916f7745108576: -80
+  m_TransitionOverrides: {}
+--- !u!245 &24596384
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Bridge Torso
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 9c9a3c75ae0b2b24e9303339d473e126
+  m_FloatValues:
+    26f60f0176cd77f46a764f07f025cb8a: .0255785119
+    d7db7563e47be4c47adbfe174480af2c: -80
+    b1526e5554543a04b8386358dfc388ea: -80
+    7f129da95915279489b6b8c4030329bc: 2.00252962
+    5d9638aa91367054ebb2afcc8886a528: 2.45832157
+    b12c085d1d70bd54bb916f7745108576: 1.6660378
+  m_TransitionOverrides: {}
